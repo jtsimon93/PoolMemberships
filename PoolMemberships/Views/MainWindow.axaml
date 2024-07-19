@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:PoolMemberships.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="PoolMemberships.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Pool Membership Manager">
+        
+        <Grid>
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <Menu Grid.Row="0" Background="#F0F0F0">
+                        <MenuItem Header="_File">
+                                <MenuItem Header="E_xit" Command="{Binding ExitCommand}" />
+                        </MenuItem>
+                        <MenuItem Header="_Help">
+                               <MenuItem Header="_About" Command="{Binding AboutCommand}" /> 
+                        </MenuItem>
+                </Menu>
+                
+                <ContentControl x:Name="MainContent" Grid.Row="1" Margin="10, 5">
+                        <TextBlock Text="Hello" />
+                </ContentControl>
+                
+                <ContentControl Grid.Row="2" Background="#F0F0F0">
+                       <StackPanel Orientation="Horizontal" Margin="10, 5">
+                               <TextBlock x:Name="StatusMessage" Text="Ready" />
+                               <ProgressBar x:Name="ProgressBar" IsVisible="False" />
+                       </StackPanel> 
+                </ContentControl>
+                
+                
+        </Grid>
+
+
+</Window>
