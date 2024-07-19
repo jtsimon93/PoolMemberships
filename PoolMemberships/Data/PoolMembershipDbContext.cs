@@ -13,9 +13,21 @@ public class PoolMembershipDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "PMM",
-            "PoolMembershipDatabase.db");
-        optionsBuilder.UseSqlite($"Data Source={dbPath}");
+        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "PMM");
+
+        if (!Directory.Exists(dbPath))
+        {
+            Directory.CreateDirectory(dbPath);
+        }
+
+        string dbFile = Path.Combine(dbPath, "PoolMembershipDatabase.db");
+
+        if (!File.Exists(dbFile))
+        {
+            File.Create(dbFile).Close();
+        }
+        
+        optionsBuilder.UseSqlite($"Data Source={dbFile}");
     } 
     
 }
