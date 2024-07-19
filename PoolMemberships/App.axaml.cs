@@ -3,6 +3,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PoolMemberships.Data;
 using PoolMemberships.ViewModels;
@@ -26,9 +27,9 @@ public partial class App : Application
 
             var serviceProvider = collection.BuildServiceProvider();
             
-            // Ensure DB is created
+            // Ensure DB is created and migrated
             var dbContext = serviceProvider.GetRequiredService<PoolMembershipDbContext>();
-            dbContext.Database.EnsureCreated();
+            dbContext.Database.Migrate();
             
             
             var vm = serviceProvider.GetRequiredService<MainWindowViewModel>();
