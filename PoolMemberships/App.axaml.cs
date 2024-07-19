@@ -4,6 +4,7 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
+using PoolMemberships.Data;
 using PoolMemberships.ViewModels;
 using PoolMemberships.Views;
 
@@ -24,6 +25,12 @@ public partial class App : Application
             collection.AddCommonServices();
 
             var serviceProvider = collection.BuildServiceProvider();
+            
+            // Ensure DB is created
+            var dbContext = serviceProvider.GetRequiredService<PoolMembershipDbContext>();
+            dbContext.Database.EnsureCreated();
+            
+            
             var vm = serviceProvider.GetRequiredService<MainWindowViewModel>();
             // Line below is needed to remove Avalonia data validation.
             // Without this line you will get duplicate validations from both Avalonia and CT
