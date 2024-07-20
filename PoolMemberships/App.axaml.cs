@@ -1,6 +1,6 @@
+using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +13,7 @@ namespace PoolMemberships;
 
 public partial class App : Application
 {
+    public static IServiceProvider Services { get; private set; }
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -25,14 +26,14 @@ public partial class App : Application
             var collection = new ServiceCollection();
             collection.AddCommonServices();
 
-            var serviceProvider = collection.BuildServiceProvider();
+            Services = collection.BuildServiceProvider();
             
             // Ensure DB is created and migrated
-            var dbContext = serviceProvider.GetRequiredService<PoolMembershipDbContext>();
+            var dbContext = Services.GetRequiredService<PoolMembershipDbContext>();
             dbContext.Database.Migrate();
             
             
-            var vm = serviceProvider.GetRequiredService<MainWindowViewModel>();
+            var vm = Services.GetRequiredService<MainWindowViewModel>();
             // Line below is needed to remove Avalonia data validation.
             // Without this line you will get duplicate validations from both Avalonia and CT
             BindingPlugins.DataValidators.RemoveAt(0);
