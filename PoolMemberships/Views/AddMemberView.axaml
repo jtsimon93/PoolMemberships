@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Spacing="10" HorizontalAlignment="Left">
-            <TextBlock MinWidth="300" Text="Add Pool Membership" FontSize="24" FontWeight="Black" Margin="0, 0, 0, 20" />
+            <TextBlock MinWidth="300" Text="Add Pool Membership" FontSize="24" FontWeight="Black" Margin="0, 0, 0, 10" />
 
             <TextBlock MinWidth="300" Text="Person Information" FontSize="20" FontWeight="Bold" Margin="0, 0, 0, 10" />
 
@@ -23,28 +23,28 @@
                 <StackPanel Orientation="Horizontal" Spacing="20">
                     <StackPanel Spacing="10" Width="300">
                         <TextBlock FontWeight="Bold" Text="First Name:" />
-                        <TextBox x:Name="FirstNameTextBox" />
+                        <TextBox x:Name="FirstNameTextBox" Text="{Binding FirstName}" />
                     </StackPanel>
                     <StackPanel Spacing="10" Width="300">
                         <TextBlock FontWeight="Bold" Text="Last Name:" />
-                        <TextBox x:Name="LastNameTextBox" />
+                        <TextBox x:Name="LastNameTextBox" Text="{Binding LastName}" />
                     </StackPanel>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Spacing="20">
                     <StackPanel Spacing="10" Width="300">
                         <TextBlock FontWeight="Bold" Text="Email Address:" />
-                        <TextBox x:Name="EmailAddressTextBox" />
+                        <TextBox x:Name="EmailAddressTextBox" Text="{Binding Email}" />
                     </StackPanel>
                     <StackPanel Spacing="10" Width="300">
                         <TextBlock FontWeight="Bold" Text="Phone Number:" />
-                        <TextBox x:Name="PhoneNumberTextBox" />
+                        <TextBox x:Name="PhoneNumberTextBox" Text="{Binding PhoneNumber}" />
                     </StackPanel>
                 </StackPanel>
 
                 <StackPanel Spacing="10">
                     <TextBlock FontWeight="Bold" Text="Street Address:" />
-                    <TextBox x:Name="StreetAddressTextBox" HorizontalAlignment="Stretch" />
+                    <TextBox x:Name="StreetAddressTextBox" Text="{Binding StreetAddress}" HorizontalAlignment="Stretch" />
                 </StackPanel>
 
                 <Grid>
@@ -56,17 +56,17 @@
 
                     <StackPanel Grid.Column="0" Spacing="10" Margin="0, 0, 10, 0">
                         <TextBlock FontWeight="Bold" Text="City:" />
-                        <TextBox x:Name="CityTextBox" />
+                        <TextBox x:Name="CityTextBox" Text="{Binding City}" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Spacing="10" Margin="0, 0, 10, 0">
                         <TextBlock FontWeight="Bold" Text="State:" />
-                        <TextBox x:Name="StateTextBox" />
+                        <TextBox x:Name="StateTextBox" Text="{Binding State}" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="2" Spacing="10">
                         <TextBlock FontWeight="Bold" Text="Zip:" />
-                        <TextBox x:Name="ZipTextBox" />
+                        <TextBox x:Name="ZipTextBox" Text="{Binding ZipCode}" />
                     </StackPanel>
                 </Grid>
 
@@ -76,21 +76,26 @@
         <StackPanel Grid.Row="1" Spacing="10" Margin="0, 20, 0, 0">
             <TextBlock MinWidth="300" Text="Membership Details" FontSize="20" FontWeight="Bold" Margin="0, 0, 0, 10" />
 
+            <StackPanel Spacing="20" Width="300" HorizontalAlignment="Left" Margin="0, 0, 0, 20">
+                <TextBlock FontWeight="Bold" Width="300" Text="Key Fob ID:" />
+                <TextBox x:Name="KeyFobIdTextBox" Width="300" Text="{Binding KeyFobId}" HorizontalAlignment="Stretch" />
+            </StackPanel>
+            
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <StackPanel Spacing="10" Width="300">
                     <TextBlock FontWeight="Bold" Text="Start Date:" />
-                    <DatePicker x:Name="StartDateDatePicker" />
+                    <DatePicker x:Name="StartDateDatePicker" SelectedDate="{Binding StartDate}" />
                 </StackPanel>
                 <StackPanel Spacing="10" Width="300">
                     <TextBlock FontWeight="Bold" Text="End Date:" />
-                    <DatePicker x:Name="EndDateDatePicker" />
+                    <DatePicker x:Name="EndDateDatePicker" SelectedDate="{Binding EndDate}" />
                 </StackPanel>
             </StackPanel>
 
         </StackPanel>
         
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0, 20, 0, 0" Spacing="20">
-            <Button x:Name="AddMembershipButton" Content="Add Membership" />     
+            <Button x:Name="AddMembershipButton" Content="Add Membership" Command="{Binding AddMembershipCommand}" />     
             <Button x:Name="CancelButton" Content="Cancel" Command="{Binding CancelCommand}" />
         </StackPanel>
 
