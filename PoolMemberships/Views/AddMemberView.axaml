@@ -2,8 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:PoolMemberships.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="PoolMemberships.Views.AddMemberView">
+             x:Class="PoolMemberships.Views.AddMemberView"
+             x:DataType="vm:AddMemberViewModel">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -87,9 +89,9 @@
 
         </StackPanel>
         
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0, 20, 0, 0">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0, 20, 0, 0" Spacing="20">
             <Button x:Name="AddMembershipButton" Content="Add Membership" />     
-            <Button x:Name="CancelButton" Content="Cancel" />
+            <Button x:Name="CancelButton" Content="Cancel" Command="{Binding CancelCommand}" />
         </StackPanel>
 
     </Grid>

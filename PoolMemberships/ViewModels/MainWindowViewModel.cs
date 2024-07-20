@@ -46,7 +46,10 @@ public partial class MainWindowViewModel : ViewModelBase
     
     private void ShowAddNewMemberControl()
     {
-        var addNewMemberView = new AddMemberView();
+        var addNewMemberView = new AddMemberView()
+        {
+            DataContext = App.Services.GetRequiredService<AddMemberViewModel>()
+        };
         CurrentView = addNewMemberView;
     }
 }

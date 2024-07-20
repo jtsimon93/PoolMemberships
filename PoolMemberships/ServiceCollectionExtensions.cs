@@ -15,8 +15,9 @@ public static class ServiceCollectionExtensions
       collection.AddDbContext<PoolMembershipDbContext>();
       
       // View Models
-      collection.AddTransient<MainWindowViewModel>();
+      collection.AddSingleton<MainWindowViewModel>();
       collection.AddTransient<MembershipDataGridViewModel>();
+      collection.AddTransient<AddMemberViewModel>();
       
       // Repositories
       collection.AddTransient<IMembershipRepository, MembershipRepository>();
