@@ -9,9 +9,61 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" Spacing="10" HorizontalAlignment="Left">
 
-           <TextBlock Text="Add Pool Membership" FontSize="24" FontWeight="Bold" /> 
+            <TextBlock MinWidth="300" Text="Add Pool Membership" FontSize="24" />
+
+            <TextBlock MinWidth="300" Text="Person" FontSize="20" Margin="0, 0, 0, 10" />
+
+            <StackPanel Orientation="Vertical" Spacing="20">
+
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <StackPanel Spacing="10">
+                        <TextBlock FontWeight="Bold" MinWidth="300" Text="First Name:" />
+                        <TextBox />
+
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock FontWeight="Bold" MinWidth="300" Text="Last Name:" />
+                        <TextBox />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <StackPanel Spacing="10">
+                        <TextBlock FontWeight="Bold" MinWidth="300" Text="Email Address:" />
+                        <TextBox />
+
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock FontWeight="Bold" MinWidth="300" Text="Phone Number:" />
+                        <TextBox />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Spacing="10">
+                <TextBlock FontWeight="Bold" MinWidth="300" Text="Street Address:" />
+                <TextBox HorizontalAlignment="Stretch" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <StackPanel Spacing="10">
+                        <TextBlock FontWeight="Bold" Text="City:" />
+                        <TextBox />
+                    </StackPanel>
+
+                    <StackPanel Spacing="10">
+                        <TextBlock FontWeight="Bold" Text="State:" />
+                        <TextBox />
+                    </StackPanel>
+
+                    <StackPanel Spacing="10">
+                        <TextBlock FontWeight="Bold" Text="Zip:" />
+                        <TextBox />
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
 
         </StackPanel>
 
