@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PoolMemberships.Data;
-using PoolMemberships.Models;
 using PoolMemberships.Repositories;
 using PoolMemberships.Services;
 using PoolMemberships.ViewModels;
@@ -16,6 +15,7 @@ public static class ServiceCollectionExtensions
       
       // View Models
       collection.AddTransient<MainWindowViewModel>();
+      collection.AddTransient<MembershipDataGridViewModel>();
       
       // Repositories
       collection.AddTransient<IMembershipRepository, MembershipRepository>();

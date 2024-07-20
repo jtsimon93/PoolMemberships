@@ -25,9 +25,7 @@
                         </MenuItem>
                 </Menu>
                 
-                <ContentControl x:Name="MainContent" Grid.Row="1" Margin="10, 5">
-                        <TextBlock Text="Hello" />
-                </ContentControl>
+                <ContentControl x:Name="MainContent" Grid.Row="1" Margin="10, 5" />
                 
                 <ContentControl Grid.Row="2" Background="#F0F0F0">
                        <StackPanel Orientation="Horizontal" Margin="10, 5">
