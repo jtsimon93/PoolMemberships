@@ -93,7 +93,7 @@ public partial class AddMemberViewModel : ViewModelBase
         await Task.Run(() => _membershipService.AddAsync(membership));
     }
 
-    private void ReturnToMembershipDataGrid()
+    private static void ReturnToMembershipDataGrid()
     {
         var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
         var membershipDataGrid = new MembershipDataGrid
