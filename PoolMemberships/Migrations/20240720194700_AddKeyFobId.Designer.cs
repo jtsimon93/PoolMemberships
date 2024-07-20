@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PoolMemberships.Data;
 
@@ -10,9 +11,11 @@ using PoolMemberships.Data;
 namespace PoolMemberships.Migrations
 {
     [DbContext(typeof(PoolMembershipDbContext))]
-    partial class PoolMembershipDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240720194700_AddKeyFobId")]
+    partial class AddKeyFobId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");

@@ -8,6 +8,8 @@ public class MembershipWithPersonDto
     public DateOnly StartDate { get; set; }
     public DateOnly EndDate { get; set; }
     public bool Active { get; set; }
+    
+    public string? KeyFobId { get; set; }
     public string PersonFirstName { get; set; }
     public string PersonLastName { get; set; }
     public string? PersonEmail { get; set; }

@@ -13,6 +13,7 @@
             <DataGridTextColumn Header="Start Date" Binding="{Binding StartDate}" /> 
             <DataGridTextColumn Header="End Date" Binding="{Binding EndDate}" />
             <DataGridCheckBoxColumn Header="Membership Status" Binding="{Binding Active}" />
+            <DataGridTextColumn Header="Key Fob ID" Binding="{Binding KeyFobId}" />
             <DataGridTextColumn Header="First Name" Binding="{Binding PersonFirstName}" />
             <DataGridTextColumn Header="Last Name" Binding="{Binding PersonLastName}" />
             <DataGridTextColumn Header="Email" Binding="{Binding PersonEmail}" />

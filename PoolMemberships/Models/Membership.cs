@@ -21,6 +21,9 @@ public class Membership
     
     [Required]
     public DateOnly EndDate { get; set; }
+    
+    [MaxLength(50)]
+    public string? KeyFobId { get; set; }
 
     [Required] 
     public bool Active { get; set; } = true;
