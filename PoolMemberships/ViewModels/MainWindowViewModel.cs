@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
+using Avalonia.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.DependencyInjection;
 using PoolMemberships.Views;
 
 namespace PoolMemberships.ViewModels;
@@ -10,10 +13,21 @@ public partial class MainWindowViewModel : ViewModelBase
     public ICommand ExitCommand { get; }
     public ICommand AboutCommand { get; }
 
+    [ObservableProperty]
+    private UserControl _currentView;
+
     public MainWindowViewModel()
     {
         ExitCommand = new RelayCommand(ExitApplication);
         AboutCommand = new RelayCommand(ShowAboutWindow);
+        
+        var membershipDataGrid = new MembershipDataGrid
+        {
+            DataContext = App.Services.GetRequiredService<MembershipDataGridViewModel>()
+        };
+        
+        CurrentView = membershipDataGrid;
+        
     }
 
     private void ExitApplication()
