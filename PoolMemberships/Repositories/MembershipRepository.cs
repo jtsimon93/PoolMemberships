@@ -27,5 +27,12 @@ public class MembershipRepository : IMembershipRepository
     {
         return await _context.Memberships.ToListAsync();
     }
+
+    public async Task<IEnumerable<Membership>> GetAllWithPersonAsync()
+    {   
+        return await _context.Memberships
+            .Include(m => m.Person)
+            .ToListAsync();
+    }
     
 }

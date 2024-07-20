@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PoolMemberships.Data;
+using PoolMemberships.Profiles;
 using PoolMemberships.Repositories;
 using PoolMemberships.Services;
 using PoolMemberships.ViewModels;
@@ -26,5 +27,8 @@ public static class ServiceCollectionExtensions
       collection.AddTransient<IMembershipService, MembershipService>();
       collection.AddTransient<IPersonService, PersonService>();
       collection.AddTransient<IPaymentService, PaymentService>();
+      
+      // AutoMapper
+      collection.AddAutoMapper(typeof(MappingProfile));
    } 
 }

@@ -10,6 +10,7 @@ public class MappingProfile : Profile
     {
         CreateMap<Membership, MembershipWithPersonDto>()
             .ForMember(dest => dest.PersonFirstName, opt => opt.MapFrom(src => src.Person.FirstName))
-            .ForMember(dest => dest.PersonLastName, opt => opt.MapFrom(src => src.Person.LastName));
+            .ForMember(dest => dest.PersonLastName, opt => opt.MapFrom(src => src.Person.LastName))
+            .ForMember(dest => dest.PersonPhoneNumber, opt => opt.MapFrom(src => src.Person.Phone));
     }
 }

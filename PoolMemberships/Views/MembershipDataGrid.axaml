@@ -7,5 +7,20 @@
              x:Class="PoolMemberships.Views.MembershipDataGrid"
              x:DataType="vm:MembershipDataGridViewModel"
              >
-    <DataGrid ItemsSource="{Binding Memberships}" AutoGenerateColumns="True" />
+    <DataGrid ItemsSource="{Binding Memberships}" >
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Membership ID" Binding="{Binding MembershipId}" />
+            <DataGridTextColumn Header="Start Date" Binding="{Binding StartDate}" /> 
+            <DataGridTextColumn Header="End Date" Binding="{Binding EndDate}" />
+            <DataGridCheckBoxColumn Header="Membership Status" Binding="{Binding Active}" />
+            <DataGridTextColumn Header="First Name" Binding="{Binding PersonFirstName}" />
+            <DataGridTextColumn Header="Last Name" Binding="{Binding PersonLastName}" />
+            <DataGridTextColumn Header="Email" Binding="{Binding PersonEmail}" />
+            <DataGridTextColumn Header="Phone" Binding="{Binding PersonPhoneNumber}" />
+            <DataGridTextColumn Header="Street" Binding="{Binding PersonAddress}" />
+            <DataGridTextColumn Header="City" Binding="{Binding PersonCity}" />
+            <DataGridTextColumn Header="State" Binding="{Binding PersonState}" />
+            <DataGridTextColumn Header="Zip" Binding="{Binding PersonZip}" />
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>
