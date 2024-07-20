@@ -46,23 +46,19 @@ public partial class AddMemberViewModel : ViewModelBase
         AddMembershipCommand = new RelayCommand(AddMembership);
     }
 
-    public void Cancel()
+    private void Cancel()
     {
-        var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
-        var membershipDataGrid = new MembershipDataGrid
-        {
-            DataContext = App.Services.GetRequiredService<MembershipDataGridViewModel>() 
-        };
-        
-        mainWindowViewModel.CurrentView = membershipDataGrid;
+        ReturnToMembershipDataGrid();
     }
 
-    public async void AddMembership()
+    private async void AddMembership()
     {
 
         var person = await AddPersonAsync();
         
         await AddMembershipAsync(person);
+        
+        ReturnToMembershipDataGrid();
 
     }
 
@@ -95,6 +91,17 @@ public partial class AddMemberViewModel : ViewModelBase
         };
         
         await Task.Run(() => _membershipService.AddAsync(membership));
+    }
+
+    private void ReturnToMembershipDataGrid()
+    {
+        var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
+        var membershipDataGrid = new MembershipDataGrid
+        {
+            DataContext = App.Services.GetRequiredService<MembershipDataGridViewModel>() 
+        };
+        
+        mainWindowViewModel.CurrentView = membershipDataGrid; 
     }
     
 }
