@@ -19,8 +19,8 @@
                 
                 <Menu Grid.Row="0" Background="#F0F0F0">
                         <MenuItem Header="_File">
-                                <MenuItem Header="E_xit" Command="{Binding ExitCommand}" />
                                 <MenuItem Header="_Excel Export" IsEnabled="False" />
+                                <MenuItem Header="E_xit" Command="{Binding ExitCommand}" />
                         </MenuItem>
 					<MenuItem Header="_Help">
 						<MenuItem Header="_About" Command="{Binding AboutCommand}" />
@@ -29,7 +29,7 @@
 
 			<ContentControl Grid.Row="1" BorderBrush="LightGray" BorderThickness="0, 1, 0, 1" Background="#F0F0F0">			
 				<StackPanel x:Name="Toolbar" Orientation="Horizontal" Margin="10, 5" Spacing="5">
-				    <Button Content="Add Membership" />
+				    <Button Content="Add Membership" Command="{Binding AddNewMemberCommand}" />
 					<Button Content="Search Memberships" IsEnabled="False" />
 			    </StackPanel>
             </ContentControl>

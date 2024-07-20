@@ -12,6 +12,8 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     public ICommand ExitCommand { get; }
     public ICommand AboutCommand { get; }
+    
+    public ICommand AddNewMemberCommand { get; }
 
     [ObservableProperty]
     private UserControl _currentView;
@@ -20,6 +22,7 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         ExitCommand = new RelayCommand(ExitApplication);
         AboutCommand = new RelayCommand(ShowAboutWindow);
+        AddNewMemberCommand = new RelayCommand(ShowAddNewMemberControl);
         
         var membershipDataGrid = new MembershipDataGrid
         {
@@ -39,5 +42,11 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         var aboutWindow = new AboutWindow();
         aboutWindow.Show();
+    }
+    
+    private void ShowAddNewMemberControl()
+    {
+        var addNewMemberView = new AddMemberView();
+        CurrentView = addNewMemberView;
     }
 }
