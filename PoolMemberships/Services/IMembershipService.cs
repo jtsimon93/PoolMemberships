@@ -10,4 +10,5 @@ public interface IMembershipService
     Task<Membership> AddAsync(Membership membership);
     Task<IEnumerable<Membership>> GetAllAsync();
     Task<IEnumerable<MembershipWithPersonDto>> GetAllWithPersonAsync();
+    Task<MembershipWithPersonDto?> GetWithPersonAsync(int id);
 }

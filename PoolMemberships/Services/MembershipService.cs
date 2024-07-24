@@ -33,6 +33,13 @@ public class MembershipService : IMembershipService
         var memberships = await _membershipRepository.GetAllWithPersonAsync();
         return _mapper.Map<IEnumerable<MembershipWithPersonDto>>(memberships);
     }
+
+    public async Task<MembershipWithPersonDto?> GetWithPersonAsync(int id)
+    {
+        var membership = await _membershipRepository.GetWithPersonAsync(id);
+        
+        return membership == null ? null : _mapper.Map<MembershipWithPersonDto>(membership);
+    }
     
 
 }

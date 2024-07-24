@@ -9,5 +9,6 @@ public interface IMembershipRepository
     Task<Membership> AddAsync(Membership membership);
     Task<IEnumerable<Membership>> GetAllAsync();
     Task<IEnumerable<Membership>> GetAllWithPersonAsync();
+    Task<Membership?> GetWithPersonAsync(int id);
 
 }

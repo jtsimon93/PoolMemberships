@@ -34,5 +34,10 @@ public class MembershipRepository : IMembershipRepository
             .Include(m => m.Person)
             .ToListAsync();
     }
+
+    public async Task<Membership?> GetWithPersonAsync(int id)
+    {
+        return await _context.Memberships.FindAsync(id);
+    }
     
 }
