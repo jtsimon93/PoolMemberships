@@ -85,11 +85,11 @@
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <StackPanel Spacing="10" Width="300">
                     <TextBlock FontWeight="Bold" Text="Start Date:" />
-                    <DatePicker x:Name="StartDateDatePicker" SelectedDate="{Binding StartDate}" />
+                    <DatePicker x:Name="StartDateDatePicker" SelectedDate="{Binding StartDate}" IsEnabled="False" />
                 </StackPanel>
                 <StackPanel Spacing="10" Width="300">
                     <TextBlock FontWeight="Bold" Text="End Date:" />
-                    <DatePicker x:Name="EndDateDatePicker" SelectedDate="{Binding EndDate}" />
+                    <DatePicker x:Name="EndDateDatePicker" SelectedDate="{Binding EndDate}" IsEnabled="False" />
                 </StackPanel>
             </StackPanel>
 
