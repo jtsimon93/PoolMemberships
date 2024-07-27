@@ -8,6 +8,7 @@
         WindowStartupLocation="CenterScreen"
         CanResize="False"
         x:Class="PoolMemberships.Views.AboutWindow"
+        Icon="avares://PoolMemberships/Assets/app-icon.png"
         Title="About Pool Membership Manager">
     <StackPanel Spacing="10" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
         <TextBlock Text="Pool Membership Manager" FontSize="24" FontWeight="Bold" />
