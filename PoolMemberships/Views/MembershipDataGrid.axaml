@@ -5,12 +5,12 @@
              xmlns:vm="using:PoolMemberships.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="PoolMemberships.Views.MembershipDataGrid"
-             x:DataType="vm:MembershipDataGridViewModel"
-             >
-    <DataGrid x:Name="MDataGrid" ItemsSource="{Binding Memberships}" IsReadOnly="True" PointerReleased="MembershipDataGrid_PointerReleased" >
+             x:DataType="vm:MembershipDataGridViewModel">
+    <DataGrid x:Name="MDataGrid" ItemsSource="{Binding Memberships}" IsReadOnly="True"
+              PointerReleased="MembershipDataGrid_PointerReleased">
         <DataGrid.Columns>
             <DataGridTextColumn Header="Membership ID" Binding="{Binding MembershipId}" />
-            <DataGridTextColumn Header="Start Date" Binding="{Binding StartDate}" /> 
+            <DataGridTextColumn Header="Start Date" Binding="{Binding StartDate}" />
             <DataGridTextColumn Header="End Date" Binding="{Binding EndDate}" />
             <DataGridCheckBoxColumn Header="Membership Status" Binding="{Binding Active}" />
             <DataGridTextColumn Header="Key Fob ID" Binding="{Binding KeyFobId}" />

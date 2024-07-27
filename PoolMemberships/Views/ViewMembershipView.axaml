@@ -6,7 +6,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="PoolMemberships.Views.ViewMembershipView"
              x:DataType="vm:ViewMembershipViewModel">
-       <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -44,7 +44,8 @@
 
                 <StackPanel Spacing="10">
                     <TextBlock FontWeight="Bold" Text="Street Address:" />
-                    <TextBlock x:Name="StreetAddressTextBox" Text="{Binding StreetAddress}" HorizontalAlignment="Stretch" />
+                    <TextBlock x:Name="StreetAddressTextBox" Text="{Binding StreetAddress}"
+                               HorizontalAlignment="Stretch" />
                 </StackPanel>
 
                 <Grid>
@@ -80,7 +81,7 @@
                 <TextBlock FontWeight="Bold" Width="300" Text="Key Fob ID:" />
                 <TextBlock x:Name="KeyFobIdTextBox" Width="300" Text="{Binding KeyFobId}" HorizontalAlignment="Stretch" />
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <StackPanel Spacing="10" Width="300">
                     <TextBlock FontWeight="Bold" Text="Start Date:" />
@@ -91,13 +92,13 @@
                     <DatePicker x:Name="EndDateDatePicker" SelectedDate="{Binding EndDate}" />
                 </StackPanel>
             </StackPanel>
-            
-            <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0">
-                
-               <Button Content="Return to List" Command="{Binding ReturnToListCommand}" /> 
-                </StackPanel>
 
+            <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0">
+
+                <Button Content="Return to List" Command="{Binding ReturnToListCommand}" />
             </StackPanel>
 
-    </Grid> 
+        </StackPanel>
+
+    </Grid>
 </UserControl>

@@ -9,20 +9,20 @@ namespace PoolMemberships.Services;
 
 public class MembershipService : IMembershipService
 {
-    private readonly IMembershipRepository _membershipRepository;
     private readonly IMapper _mapper;
-    
+    private readonly IMembershipRepository _membershipRepository;
+
     public MembershipService(IMembershipRepository membershipRepository, IMapper mapper)
     {
         _membershipRepository = membershipRepository;
         _mapper = mapper;
     }
-    
+
     public async Task<Membership> AddAsync(Membership membership)
     {
         return await _membershipRepository.AddAsync(membership);
     }
-    
+
     public async Task<IEnumerable<Membership>> GetAllAsync()
     {
         return await _membershipRepository.GetAllAsync();
@@ -37,9 +37,7 @@ public class MembershipService : IMembershipService
     public async Task<MembershipWithPersonDto?> GetWithPersonAsync(int id)
     {
         var membership = await _membershipRepository.GetWithPersonAsync(id);
-        
+
         return membership == null ? null : _mapper.Map<MembershipWithPersonDto>(membership);
     }
-    
-
 }

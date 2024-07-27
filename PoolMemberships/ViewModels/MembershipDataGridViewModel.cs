@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Net.Mime;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -14,20 +13,19 @@ namespace PoolMemberships.ViewModels;
 
 public partial class MembershipDataGridViewModel : ViewModelBase
 {
-
-    public ICommand RowDoubleTappedCommand { get; }
     private readonly IMembershipService _membershipService;
 
-    [ObservableProperty]
-    private ObservableCollection<MembershipWithPersonDto> _memberships;
+    [ObservableProperty] private ObservableCollection<MembershipWithPersonDto> _memberships;
 
-    
+
     public MembershipDataGridViewModel(IMembershipService membershipService)
     {
         _membershipService = membershipService;
         RowDoubleTappedCommand = new RelayCommand<MembershipWithPersonDto>(OnRowDoubleClicked);
         InitializeData();
     }
+
+    public ICommand RowDoubleTappedCommand { get; }
 
     private async void InitializeData()
     {
@@ -47,16 +45,13 @@ public partial class MembershipDataGridViewModel : ViewModelBase
 
         var viewMembershipViewModel = App.Services.GetRequiredService<ViewMembershipViewModel>();
         viewMembershipViewModel.PopulateData(membership.MembershipId);
-        
+
         var view = new ViewMembershipView
         {
             DataContext = viewMembershipViewModel
         };
-        
+
         var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
         mainWindowViewModel.CurrentView = view;
-
     }
-
-    
 }

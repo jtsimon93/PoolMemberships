@@ -11,16 +11,14 @@ public partial class MembershipDataGrid : UserControl
     {
         InitializeComponent();
     }
-    
+
     private void MembershipDataGrid_PointerReleased(object? sender, PointerReleasedEventArgs e)
     {
         if (e.InitialPressMouseButton == MouseButton.Left)
-        {
             if (DataContext is MembershipDataGridViewModel viewModel)
             {
                 var selectedMembership = (MembershipWithPersonDto)MDataGrid.SelectedItem;
                 viewModel.RowDoubleTappedCommand.Execute(selectedMembership);
             }
-        }
     }
 }

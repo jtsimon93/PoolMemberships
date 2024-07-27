@@ -10,28 +10,26 @@ namespace PoolMemberships.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    public ICommand ExitCommand { get; }
-    public ICommand AboutCommand { get; }
-    
-    public ICommand AddNewMemberCommand { get; }
-
-    [ObservableProperty]
-    private UserControl _currentView;
+    [ObservableProperty] private UserControl _currentView;
 
     public MainWindowViewModel()
     {
         ExitCommand = new RelayCommand(ExitApplication);
         AboutCommand = new RelayCommand(ShowAboutWindow);
         AddNewMemberCommand = new RelayCommand(ShowAddNewMemberControl);
-        
+
         var membershipDataGrid = new MembershipDataGrid
         {
             DataContext = App.Services.GetRequiredService<MembershipDataGridViewModel>()
         };
-        
+
         CurrentView = membershipDataGrid;
-        
     }
+
+    public ICommand ExitCommand { get; }
+    public ICommand AboutCommand { get; }
+
+    public ICommand AddNewMemberCommand { get; }
 
     private void ExitApplication()
     {
@@ -43,10 +41,10 @@ public partial class MainWindowViewModel : ViewModelBase
         var aboutWindow = new AboutWindow();
         aboutWindow.Show();
     }
-    
+
     private void ShowAddNewMemberControl()
     {
-        var addNewMemberView = new AddMemberView()
+        var addNewMemberView = new AddMemberView
         {
             DataContext = App.Services.GetRequiredService<AddMemberViewModel>()
         };

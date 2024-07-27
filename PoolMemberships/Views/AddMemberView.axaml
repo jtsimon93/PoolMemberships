@@ -80,7 +80,7 @@
                 <TextBlock FontWeight="Bold" Width="300" Text="Key Fob ID:" />
                 <TextBox x:Name="KeyFobIdTextBox" Width="300" Text="{Binding KeyFobId}" HorizontalAlignment="Stretch" />
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <StackPanel Spacing="10" Width="300">
                     <TextBlock FontWeight="Bold" Text="Start Date:" />
@@ -93,9 +93,9 @@
             </StackPanel>
 
         </StackPanel>
-        
+
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0, 20, 0, 0" Spacing="20">
-            <Button x:Name="AddMembershipButton" Content="Add Membership" Command="{Binding AddMembershipCommand}" />     
+            <Button x:Name="AddMembershipButton" Content="Add Membership" Command="{Binding AddMembershipCommand}" />
             <Button x:Name="CancelButton" Content="Cancel" Command="{Binding CancelCommand}" />
         </StackPanel>
 
