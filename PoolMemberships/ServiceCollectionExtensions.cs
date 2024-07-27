@@ -18,6 +18,7 @@ public static class ServiceCollectionExtensions
       collection.AddSingleton<MainWindowViewModel>();
       collection.AddTransient<MembershipDataGridViewModel>();
       collection.AddTransient<AddMemberViewModel>();
+      collection.AddTransient<ViewMembershipViewModel>();
       
       // Repositories
       collection.AddTransient<IMembershipRepository, MembershipRepository>();
