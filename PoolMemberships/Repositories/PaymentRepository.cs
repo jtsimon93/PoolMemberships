@@ -24,6 +24,6 @@ public class PaymentRepository : IPaymentRepository
 
     public async Task<IEnumerable<Payment>> GetAllAsync()
     {
-        return await _context.Payments.ToListAsync();
+        return await _context.Payments.AsNoTracking().ToListAsync();
     }
 }
