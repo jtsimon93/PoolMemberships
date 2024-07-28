@@ -14,7 +14,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -24,22 +23,19 @@
                 <MenuItem Header="_Excel Export" IsEnabled="False" />
                 <MenuItem Header="E_xit" Command="{Binding ExitCommand}" />
             </MenuItem>
+            <MenuItem Header="_Members">
+                <MenuItem Header="_View All Members" Command="{Binding ShowAllMembersCommand}" />
+                <MenuItem Header="_Add Membership" Command="{Binding AddNewMemberCommand}" />
+                <MenuItem Header="_Search Memberships" Command="{Binding SearchMembershipsCommand}" />
+            </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About" Command="{Binding AboutCommand}" />
             </MenuItem>
         </Menu>
 
-        <ContentControl Grid.Row="1" BorderBrush="LightGray" BorderThickness="0, 1, 0, 1" Background="#F0F0F0">
-            <StackPanel x:Name="Toolbar" Orientation="Horizontal" Margin="10, 5" Spacing="5">
-                <Button Content="Add Membership" Command="{Binding AddNewMemberCommand}" />
-                <Button Content="Search Memberships" Command="{Binding SearchMembershipsCommand}" />
-            </StackPanel>
-        </ContentControl>
+        <ScrollViewer x:Name="MainContent" Content="{Binding CurrentView}" Grid.Row="1" Margin="10, 5" />
 
-
-        <ScrollViewer x:Name="MainContent" Content="{Binding CurrentView}" Grid.Row="2" Margin="10, 5" />
-
-        <ContentControl Grid.Row="3" Background="#F0F0F0">
+        <ContentControl Grid.Row="2" Background="#F0F0F0">
             <StackPanel Orientation="Horizontal" Margin="10, 5">
                 <TextBlock x:Name="StatusMessage" Text="Ready" />
                 <ProgressBar x:Name="ProgressBar" IsVisible="False" />
