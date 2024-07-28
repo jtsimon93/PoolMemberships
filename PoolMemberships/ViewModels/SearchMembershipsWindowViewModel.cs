@@ -33,7 +33,7 @@ public partial class SearchMembershipsWindowViewModel : ViewModelBase
 
     private async void Search()
     {
-        
+       
 
     }
 
