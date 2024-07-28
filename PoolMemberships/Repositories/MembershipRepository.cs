@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PoolMemberships.Data;
@@ -24,7 +25,11 @@ public class MembershipRepository : IMembershipRepository
 
     public async Task<IEnumerable<Membership>> GetAllAsync()
     {
-        return await _context.Memberships.AsNoTracking().ToListAsync();
+        return await _context.Memberships
+            .AsNoTracking()
+            .OrderByDescending(m => m.Active)
+            .ThenBy(m => m.Person.LastName)
+            .ToListAsync();
     }
 
     public async Task<IEnumerable<Membership>> GetAllWithPersonAsync()
@@ -32,6 +37,8 @@ public class MembershipRepository : IMembershipRepository
         return await _context.Memberships
             .Include(m => m.Person)
             .AsNoTracking()
+            .OrderByDescending(m => m.Active)
+            .ThenBy(m => m.Person.LastName)
             .ToListAsync();
     }
 
