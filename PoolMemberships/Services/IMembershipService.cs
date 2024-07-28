@@ -11,4 +11,5 @@ public interface IMembershipService
     Task<IEnumerable<Membership>> GetAllAsync();
     Task<IEnumerable<MembershipWithPersonDto>> GetAllWithPersonAsync();
     Task<MembershipWithPersonDto?> GetWithPersonAsync(int id);
+    Task<Membership> UpdateAsync(int membershipId, UpdateMembershipDto membershipDto);
 }

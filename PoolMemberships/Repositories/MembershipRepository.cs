@@ -38,6 +38,11 @@ public class MembershipRepository : IMembershipRepository
     {
         return await _context.Memberships.FindAsync(id);
     }
+
+    public async Task<Membership?> GetAsync(int id)
+    {
+        return await _context.Memberships.FindAsync(id);
+    }
     
     public async Task<Membership> UpdateAsync(Membership membership)
     {

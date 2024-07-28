@@ -27,6 +27,11 @@ public class PersonRepository : IPersonRepository
         return await _context.People.ToListAsync();
     }
 
+    public async Task<Person?> GetAsync(int id)
+    {
+        return await _context.People.FindAsync(id);
+    }
+
     public async Task<Person> UpdateAsync(Person person)
     {
         _context.People.Update(person);
