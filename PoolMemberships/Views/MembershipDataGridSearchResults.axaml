@@ -1,0 +1,27 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:PoolMemberships.ViewModels"
+             x:DataType="vm:MembershipDataGridSearchResultsViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PoolMemberships.Views.MembershipDataGridSearchResults">
+    <DataGrid x:Name="MDataGrid" ItemsSource="{Binding Memberships}" IsReadOnly="True"
+              PointerReleased="MembershipDataGrid_PointerReleased">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Membership ID" Binding="{Binding MembershipId}" />
+            <DataGridTextColumn Header="Start Date" Binding="{Binding StartDate}" />
+            <DataGridTextColumn Header="End Date" Binding="{Binding EndDate}" />
+            <DataGridCheckBoxColumn Header="Membership Status" Binding="{Binding Active}" />
+            <DataGridTextColumn Header="Key Fob ID" Binding="{Binding KeyFobId}" />
+            <DataGridTextColumn Header="First Name" Binding="{Binding PersonFirstName}" />
+            <DataGridTextColumn Header="Last Name" Binding="{Binding PersonLastName}" />
+            <DataGridTextColumn Header="Email" Binding="{Binding PersonEmail}" />
+            <DataGridTextColumn Header="Phone" Binding="{Binding PersonPhoneNumber}" />
+            <DataGridTextColumn Header="Street" Binding="{Binding PersonAddress}" />
+            <DataGridTextColumn Header="City" Binding="{Binding PersonCity}" />
+            <DataGridTextColumn Header="State" Binding="{Binding PersonState}" />
+            <DataGridTextColumn Header="Zip" Binding="{Binding PersonZip}" />
+        </DataGrid.Columns>
+    </DataGrid>
+</UserControl>

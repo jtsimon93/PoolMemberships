@@ -22,6 +22,7 @@ public static class ServiceCollectionExtensions
         collection.AddTransient<UpdateMembershipViewModel>();
         collection.AddTransient<UpdatePersonViewModel>();
         collection.AddTransient<SearchMembershipsWindowViewModel>();
+        collection.AddTransient<MembershipDataGridSearchResultsViewModel>();
 
         // Repositories
         collection.AddTransient<IMembershipRepository, MembershipRepository>();

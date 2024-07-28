@@ -50,4 +50,10 @@ public class MembershipService : IMembershipService
         _mapper.Map(membershipDto, membership);
         return await _membershipRepository.UpdateAsync(membership);
     }
+    
+    public async Task<IEnumerable<MembershipWithPersonDto>> SearchAsync(MembershipSearchCriteriaDto searchDto)
+    {
+        var memberships = await _membershipRepository.SearchAsync(searchDto);
+        return _mapper.Map<IEnumerable<MembershipWithPersonDto>>(memberships);
+    }
 }

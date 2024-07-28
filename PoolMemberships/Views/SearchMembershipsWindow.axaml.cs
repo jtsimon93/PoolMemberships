@@ -1,5 +1,4 @@
 ﻿using System;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using PoolMemberships.ViewModels;
@@ -14,7 +13,7 @@ public partial class SearchMembershipsWindow : Window
         InitializeComponent();
         viewModel.RequestClose += CloseWindow;
     }
-    
+
     private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
@@ -22,7 +21,6 @@ public partial class SearchMembershipsWindow : Window
 
     private void CloseWindow()
     {
-        Console.WriteLine("close window triggered");
-        this.Close();
+        Close();
     }
 }
