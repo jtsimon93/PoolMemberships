@@ -24,14 +24,13 @@ public class MembershipRepository : IMembershipRepository
 
     public async Task<IEnumerable<Membership>> GetAllAsync()
     {
-        return await _context.Memberships.AsNoTracking().ToListAsync();
+        return await _context.Memberships.ToListAsync();
     }
 
     public async Task<IEnumerable<Membership>> GetAllWithPersonAsync()
     {
         return await _context.Memberships
             .Include(m => m.Person)
-            .AsNoTracking()
             .ToListAsync();
     }
 

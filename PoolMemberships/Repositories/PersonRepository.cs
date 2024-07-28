@@ -24,7 +24,7 @@ public class PersonRepository : IPersonRepository
 
     public async Task<IEnumerable<Person>> GetAllAsync()
     {
-        return await _context.People.AsNoTracking().ToListAsync();
+        return await _context.People.ToListAsync();
     }
 
     public async Task<Person?> GetAsync(int id)
