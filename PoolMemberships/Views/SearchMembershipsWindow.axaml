@@ -1,0 +1,48 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:PoolMemberships.ViewModels"
+        x:DataType="vm:SearchMembershipsWindowViewModel"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+        x:Class="PoolMemberships.Views.SearchMembershipsWindow"
+        Icon="avares://PoolMemberships/Assets/app-icon.png"
+        Width="400"
+        Height="300"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        CanResize="False"
+        Title="Search Memberships">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel>
+            <!-- Key Fob ID -->
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
+                <Label Content="Key Fob ID:" Width="100"/>
+                <TextBox MinWidth="200" Text="{Binding KeyFobId}"/>
+            </StackPanel>
+
+            <!-- First Name -->
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
+                <Label Content="First Name:" Width="100" />
+                <TextBox MinWidth="200" Text="{Binding FirstName}"/>
+            </StackPanel>
+
+            <!-- Last Name -->
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
+                <Label Content="Last Name:" Width="100"/>
+                <TextBox MinWidth="200" Text="{Binding LastName}"/>
+            </StackPanel>
+
+            <!-- Active -->
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
+                <Label Content="Active:" Width="100"/>
+                <CheckBox IsChecked="{Binding Active}" />
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Spacing="20">
+               <Button Content="Search" HorizontalAlignment="Left" Command="{Binding SearchCommand }" /> 
+               <Button Content="Cancel" HorizontalAlignment="Right" Command="{Binding CloseWindow}" />
+                </StackPanel>
+            </StackPanel>
+    </Grid>
+</Window>

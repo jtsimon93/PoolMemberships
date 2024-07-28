@@ -32,7 +32,7 @@
         <ContentControl Grid.Row="1" BorderBrush="LightGray" BorderThickness="0, 1, 0, 1" Background="#F0F0F0">
             <StackPanel x:Name="Toolbar" Orientation="Horizontal" Margin="10, 5" Spacing="5">
                 <Button Content="Add Membership" Command="{Binding AddNewMemberCommand}" />
-                <Button Content="Search Memberships" IsEnabled="False" />
+                <Button Content="Search Memberships" Command="{Binding SearchMembershipsCommand}" />
             </StackPanel>
         </ContentControl>
 

@@ -17,6 +17,7 @@ public partial class MainWindowViewModel : ViewModelBase
         ExitCommand = new RelayCommand(ExitApplication);
         AboutCommand = new RelayCommand(ShowAboutWindow);
         AddNewMemberCommand = new RelayCommand(ShowAddNewMemberControl);
+        SearchMembershipsCommand = new RelayCommand(ShowSearchMembershipsWindow);
 
         var membershipDataGrid = new MembershipDataGrid
         {
@@ -30,6 +31,8 @@ public partial class MainWindowViewModel : ViewModelBase
     public ICommand AboutCommand { get; }
 
     public ICommand AddNewMemberCommand { get; }
+    
+    public ICommand SearchMembershipsCommand { get; }
 
     private void ExitApplication()
     {
@@ -49,5 +52,14 @@ public partial class MainWindowViewModel : ViewModelBase
             DataContext = App.Services.GetRequiredService<AddMemberViewModel>()
         };
         CurrentView = addNewMemberView;
+    }
+
+    private void ShowSearchMembershipsWindow()
+    {
+        var searchMembershipsWindowViewModel = App.Services.GetRequiredService<SearchMembershipsWindowViewModel>();
+        var searchMembershipsWindow = new SearchMembershipsWindow(searchMembershipsWindowViewModel);
+        
+        searchMembershipsWindow.Show();
+        
     }
 }
