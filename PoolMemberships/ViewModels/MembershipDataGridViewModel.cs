@@ -40,9 +40,6 @@ public partial class MembershipDataGridViewModel : ViewModelBase
 
     private void OnRowDoubleClicked(MembershipWithPersonDto membership)
     {
-        // Use membership ID
-        Console.WriteLine("Membership: " + membership.MembershipId);
-
         var viewMembershipViewModel = App.Services.GetRequiredService<ViewMembershipViewModel>();
         viewMembershipViewModel.PopulateData(membership.MembershipId);
 
