@@ -11,35 +11,35 @@ namespace PoolMemberships.ViewModels;
 public partial class UpdatePersonViewModel : ViewModelBase
 {
     private readonly IPersonService _personService;
-    
+    [ObservableProperty] private string _city;
+    [ObservableProperty] private string _email;
+
     [ObservableProperty] private string _firstName;
     [ObservableProperty] private string _lastName;
-    [ObservableProperty] private string _email;
-    [ObservableProperty] private string _phoneNumber;
-    [ObservableProperty] private string _streetAddress;
-    [ObservableProperty] private string _city;
-    [ObservableProperty] private string _state;
-    [ObservableProperty] private string _zipCode;
-    
+
     private int _personId;
-    
-    public ICommand SavePersonCommand { get; }
-    public ICommand CancelCommand { get; }
-    
+    [ObservableProperty] private string _phoneNumber;
+    [ObservableProperty] private string _state;
+    [ObservableProperty] private string _streetAddress;
+    [ObservableProperty] private string _zipCode;
+
     public UpdatePersonViewModel(IPersonService personService)
     {
         _personService = personService;
         SavePersonCommand = new RelayCommand(UpdatePerson);
         CancelCommand = new RelayCommand(OnFinishUpdate);
     }
-    
+
+    public ICommand SavePersonCommand { get; }
+    public ICommand CancelCommand { get; }
+
     public async void PopulateData(int personId)
     {
         _personId = personId;
         var person = await _personService.GetAsync(personId);
-        
+
         if (person == null) return;
-        
+
         FirstName = person.FirstName;
         LastName = person.LastName;
         Email = person.Email == null ? string.Empty : person.Email;
@@ -63,10 +63,10 @@ public partial class UpdatePersonViewModel : ViewModelBase
             State = State,
             Zip = ZipCode
         };
-        
+
         await _personService.UpdateAsync(_personId, dto);
-        
-        OnFinishUpdate(); 
+
+        OnFinishUpdate();
     }
 
     private void OnFinishUpdate()
@@ -77,9 +77,8 @@ public partial class UpdatePersonViewModel : ViewModelBase
         {
             DataContext = viewMembershipViewModel
         };
-        
+
         var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
         mainWindowViewModel.CurrentView = viewMembershipView;
     }
-    
 }

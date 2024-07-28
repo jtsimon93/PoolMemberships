@@ -23,6 +23,8 @@ public partial class ViewMembershipViewModel : ViewModelBase
     [ObservableProperty] private string _keyFobId;
 
     [ObservableProperty] private string _lastName;
+    private int _membershipId;
+    private int _personId;
 
     [ObservableProperty] private string _phoneNumber;
 
@@ -33,9 +35,6 @@ public partial class ViewMembershipViewModel : ViewModelBase
     [ObservableProperty] private string _streetAddress;
 
     [ObservableProperty] private string _zipCode;
-    
-    public ICommand UpdateMembershipCommand { get; }
-    public ICommand UpdatePersonCommand { get; }
 
     public ViewMembershipViewModel(IMembershipService membershipService)
     {
@@ -45,9 +44,10 @@ public partial class ViewMembershipViewModel : ViewModelBase
         UpdatePersonCommand = new RelayCommand(OnUpdatePerson);
     }
 
+    public ICommand UpdateMembershipCommand { get; }
+    public ICommand UpdatePersonCommand { get; }
+
     public ICommand ReturnToListCommand { get; }
-    private int _membershipId;
-    private int _personId;
 
     public async void PopulateData(int membershipId)
     {
@@ -95,10 +95,9 @@ public partial class ViewMembershipViewModel : ViewModelBase
         {
             DataContext = updateMembershipViewModel
         };
-        
+
         var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
         mainWindowViewModel.CurrentView = updateMembershipView;
-        
     }
 
     private void OnUpdatePerson()
@@ -109,7 +108,7 @@ public partial class ViewMembershipViewModel : ViewModelBase
         {
             DataContext = updatePersonViewModel
         };
-        
+
         var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
         mainWindowViewModel.CurrentView = updatePersonView;
     }

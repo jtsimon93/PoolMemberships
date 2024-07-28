@@ -6,7 +6,7 @@
              x:DataType="vm:UpdatePersonViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="PoolMemberships.Views.UpdatePersonView">
-     <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -76,5 +76,5 @@
             <Button Content="Cancel" Command="{Binding CancelCommand}" />
         </StackPanel>
 
-    </Grid> 
+    </Grid>
 </UserControl>

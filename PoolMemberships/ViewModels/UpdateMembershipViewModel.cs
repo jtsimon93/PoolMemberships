@@ -12,16 +12,13 @@ namespace PoolMemberships.ViewModels;
 public partial class UpdateMembershipViewModel : ViewModelBase
 {
     private readonly IMembershipService _membershipService;
-    private int _membershipId;
-
-    [ObservableProperty] private DateTimeOffset _startDate;
+    [ObservableProperty] private bool _active;
     [ObservableProperty] private DateTimeOffset _endDate;
     [ObservableProperty] private string _keyFobId;
-    [ObservableProperty] private bool _active;
+    private int _membershipId;
     [ObservableProperty] private string _notes;
-    
-    public ICommand SaveCommand { get; }
-    public ICommand CancelCommand { get; }
+
+    [ObservableProperty] private DateTimeOffset _startDate;
 
     public UpdateMembershipViewModel(IMembershipService membershipService)
     {
@@ -29,7 +26,10 @@ public partial class UpdateMembershipViewModel : ViewModelBase
         SaveCommand = new RelayCommand(UpdateMembership);
         CancelCommand = new RelayCommand(OnFinishUpdate);
     }
-    
+
+    public ICommand SaveCommand { get; }
+    public ICommand CancelCommand { get; }
+
     public async void PopulateData(int membershipId)
     {
         _membershipId = membershipId;
@@ -40,7 +40,7 @@ public partial class UpdateMembershipViewModel : ViewModelBase
         KeyFobId = membership.KeyFobId;
         Active = membership.Active;
         Notes = membership.Notes;
-        
+
         // membership.StartDate and membership.EndDate are DateOnly
         // StartDate and EndDate are DateTimeOffset, so we need to convert them
         StartDate = new DateTimeOffset(membership.StartDate.Year, membership.StartDate.Month, membership.StartDate.Day,
@@ -48,7 +48,7 @@ public partial class UpdateMembershipViewModel : ViewModelBase
         EndDate = new DateTimeOffset(membership.EndDate.Year, membership.EndDate.Month, membership.EndDate.Day, 0, 0, 0,
             TimeSpan.Zero);
     }
-    
+
     private async void UpdateMembership()
     {
         var dto = new UpdateMembershipDto
@@ -75,7 +75,5 @@ public partial class UpdateMembershipViewModel : ViewModelBase
 
         var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
         mainWindowViewModel.CurrentView = view;
-        
     }
-
 }

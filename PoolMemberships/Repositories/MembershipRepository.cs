@@ -43,7 +43,7 @@ public class MembershipRepository : IMembershipRepository
     {
         return await _context.Memberships.FindAsync(id);
     }
-    
+
     public async Task<Membership> UpdateAsync(Membership membership)
     {
         _context.Memberships.Update(membership);

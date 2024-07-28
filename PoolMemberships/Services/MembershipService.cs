@@ -44,12 +44,9 @@ public class MembershipService : IMembershipService
     public async Task<Membership> UpdateAsync(int membershipId, UpdateMembershipDto membershipDto)
     {
         var membership = await _membershipRepository.GetAsync(membershipId);
-        
-        if (membership == null)
-        {
-            throw new KeyNotFoundException($"Membership with id {membershipId} not found");
-        }
-        
+
+        if (membership == null) throw new KeyNotFoundException($"Membership with id {membershipId} not found");
+
         _mapper.Map(membershipDto, membership);
         return await _membershipRepository.UpdateAsync(membership);
     }
