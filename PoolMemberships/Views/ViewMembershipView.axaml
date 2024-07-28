@@ -20,7 +20,7 @@
                 <Button.Flyout>
                     <MenuFlyout>
                         <MenuItem Header="Edit Membership" Command="{Binding UpdateMembershipCommand}"/>
-                        <MenuItem Header="Edit Person"/>
+                        <MenuItem Header="Edit Person" Command="{Binding UpdatePersonCommand}"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>

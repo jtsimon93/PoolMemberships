@@ -11,6 +11,7 @@ public class MembershipWithPersonDto
 
     public string? KeyFobId { get; set; }
     public string? Notes { get; set; }
+    public int PersonId { get; set; }
     public string PersonFirstName { get; set; }
     public string PersonLastName { get; set; }
     public string? PersonEmail { get; set; }

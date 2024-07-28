@@ -35,16 +35,19 @@ public partial class ViewMembershipViewModel : ViewModelBase
     [ObservableProperty] private string _zipCode;
     
     public ICommand UpdateMembershipCommand { get; }
+    public ICommand UpdatePersonCommand { get; }
 
     public ViewMembershipViewModel(IMembershipService membershipService)
     {
         _membershipService = membershipService;
         ReturnToListCommand = new RelayCommand(OnReturnToList);
         UpdateMembershipCommand = new RelayCommand(OnUpdateMembership);
+        UpdatePersonCommand = new RelayCommand(OnUpdatePerson);
     }
 
     public ICommand ReturnToListCommand { get; }
     private int _membershipId;
+    private int _personId;
 
     public async void PopulateData(int membershipId)
     {
@@ -52,6 +55,7 @@ public partial class ViewMembershipViewModel : ViewModelBase
         var membership = await _membershipService.GetWithPersonAsync(membershipId);
 
         if (membership == null) return;
+        _personId = membership.PersonId;
 
         FirstName = membership.PersonFirstName;
         LastName = membership.PersonLastName;
@@ -95,5 +99,18 @@ public partial class ViewMembershipViewModel : ViewModelBase
         var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
         mainWindowViewModel.CurrentView = updateMembershipView;
         
+    }
+
+    private void OnUpdatePerson()
+    {
+        var updatePersonViewModel = App.Services.GetRequiredService<UpdatePersonViewModel>();
+        updatePersonViewModel.PopulateData(_personId);
+        var updatePersonView = new UpdatePersonView
+        {
+            DataContext = updatePersonViewModel
+        };
+        
+        var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
+        mainWindowViewModel.CurrentView = updatePersonView;
     }
 }

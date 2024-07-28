@@ -27,6 +27,11 @@ public class PersonService : IPersonService
     {
         return await _personRepository.GetAllAsync();
     }
+    
+    public async Task<Person?> GetAsync(int personId)
+    {
+        return await _personRepository.GetAsync(personId);
+    }
 
     public async Task<Person> UpdateAsync(int personId, UpdatePersonDto personDto)
     {
