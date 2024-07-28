@@ -21,6 +21,11 @@
             <TextBlock MinWidth="300" Text="Membership Details" FontSize="20" FontWeight="Bold" Margin="0, 0, 0, 10" />
 
             <StackPanel Spacing="20" Width="300" HorizontalAlignment="Left" Margin="0, 0, 0, 20">
+                <TextBlock FontWeight="Bold" Width="300" Text="Status:" />
+                <CheckBox IsChecked="{Binding Active}" />
+            </StackPanel>
+            
+            <StackPanel Spacing="20" Width="300" HorizontalAlignment="Left" Margin="0, 0, 0, 20">
                 <TextBlock FontWeight="Bold" Width="300" Text="Key Fob ID:" />
                 <TextBox x:Name="KeyFobIdTextBox" Width="300" Text="{Binding KeyFobId}" HorizontalAlignment="Stretch" />
             </StackPanel>

@@ -36,6 +36,8 @@ public partial class ViewMembershipViewModel : ViewModelBase
 
     [ObservableProperty] private string _zipCode;
 
+    [ObservableProperty] private bool _active;
+
     public ViewMembershipViewModel(IMembershipService membershipService)
     {
         _membershipService = membershipService;
@@ -66,6 +68,7 @@ public partial class ViewMembershipViewModel : ViewModelBase
         State = membership.PersonState == null ? string.Empty : membership.PersonState;
         ZipCode = membership.PersonZip == null ? string.Empty : membership.PersonZip;
         KeyFobId = membership.KeyFobId == null ? string.Empty : membership.KeyFobId;
+        Active = membership.Active;
 
         // membership.StartDate and membership.EndDate are DateOnly
         // StartDate and EndDate are DateTimeOffset, so we need to convert them

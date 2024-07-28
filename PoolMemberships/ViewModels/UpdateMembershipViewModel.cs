@@ -17,7 +17,6 @@ public partial class UpdateMembershipViewModel : ViewModelBase
     [ObservableProperty] private string _keyFobId;
     private int _membershipId;
     [ObservableProperty] private string _notes;
-
     [ObservableProperty] private DateTimeOffset _startDate;
 
     public UpdateMembershipViewModel(IMembershipService membershipService)

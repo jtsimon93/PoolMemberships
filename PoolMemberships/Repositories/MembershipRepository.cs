@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PoolMemberships.Data;
@@ -31,6 +32,8 @@ public class MembershipRepository : IMembershipRepository
     {
         return await _context.Memberships
             .Include(m => m.Person)
+            .OrderByDescending(m => m.Active)
+            .ThenBy(m => m.Person.LastName)
             .ToListAsync();
     }
 
