@@ -1,0 +1,47 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:PoolMemberships.ViewModels"
+             x:DataType="vm:UpdateMembershipViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PoolMemberships.Views.UpdateMembershipView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Spacing="10" HorizontalAlignment="Left">
+            <TextBlock MinWidth="300" Text="Edit Pool Membership" FontSize="24" FontWeight="Black" Margin="0, 0, 0, 10" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Spacing="10" Margin="0, 20, 0, 0">
+            <TextBlock MinWidth="300" Text="Membership Details" FontSize="20" FontWeight="Bold" Margin="0, 0, 0, 10" />
+
+            <StackPanel Spacing="20" Width="300" HorizontalAlignment="Left" Margin="0, 0, 0, 20">
+                <TextBlock FontWeight="Bold" Width="300" Text="Key Fob ID:" />
+                <TextBox x:Name="KeyFobIdTextBox" Width="300" Text="{Binding KeyFobId}" HorizontalAlignment="Stretch" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <StackPanel Spacing="10" Width="300">
+                    <TextBlock FontWeight="Bold" Text="Start Date:" />
+                    <DatePicker x:Name="StartDateDatePicker" SelectedDate="{Binding StartDate}" />
+                </StackPanel>
+                <StackPanel Spacing="10" Width="300">
+                    <TextBlock FontWeight="Bold" Text="End Date:" />
+                    <DatePicker x:Name="EndDateDatePicker" SelectedDate="{Binding EndDate}" />
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0, 20, 0, 0" Spacing="20">
+            <Button Content="Save Membership" Command="{Binding SaveCommand}" />
+            <Button Content="Cancel" Command="{Binding CancelCommand}" />
+        </StackPanel>
+
+    </Grid>
+</UserControl>

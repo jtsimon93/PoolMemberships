@@ -33,17 +33,22 @@ public partial class ViewMembershipViewModel : ViewModelBase
     [ObservableProperty] private string _streetAddress;
 
     [ObservableProperty] private string _zipCode;
+    
+    public ICommand UpdateMembershipCommand { get; }
 
     public ViewMembershipViewModel(IMembershipService membershipService)
     {
         _membershipService = membershipService;
         ReturnToListCommand = new RelayCommand(OnReturnToList);
+        UpdateMembershipCommand = new RelayCommand(OnUpdateMembership);
     }
 
     public ICommand ReturnToListCommand { get; }
+    private int _membershipId;
 
     public async void PopulateData(int membershipId)
     {
+        _membershipId = membershipId;
         var membership = await _membershipService.GetWithPersonAsync(membershipId);
 
         if (membership == null) return;
@@ -76,5 +81,19 @@ public partial class ViewMembershipViewModel : ViewModelBase
         };
 
         mainWindowViewModel.CurrentView = membershipDataGridView;
+    }
+
+    private void OnUpdateMembership()
+    {
+        var updateMembershipViewModel = App.Services.GetRequiredService<UpdateMembershipViewModel>();
+        updateMembershipViewModel.PopulateData(_membershipId);
+        var updateMembershipView = new UpdateMembershipView
+        {
+            DataContext = updateMembershipViewModel
+        };
+        
+        var mainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
+        mainWindowViewModel.CurrentView = updateMembershipView;
+        
     }
 }

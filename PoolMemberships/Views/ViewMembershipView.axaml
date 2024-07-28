@@ -19,7 +19,7 @@
             <Button Content="Edit" HorizontalAlignment="Right">
                 <Button.Flyout>
                     <MenuFlyout>
-                        <MenuItem Header="Edit Membership"/>
+                        <MenuItem Header="Edit Membership" Command="{Binding UpdateMembershipCommand}"/>
                         <MenuItem Header="Edit Person"/>
                     </MenuFlyout>
                 </Button.Flyout>

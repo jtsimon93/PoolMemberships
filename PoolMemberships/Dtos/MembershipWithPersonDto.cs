@@ -10,6 +10,7 @@ public class MembershipWithPersonDto
     public bool Active { get; set; }
 
     public string? KeyFobId { get; set; }
+    public string? Notes { get; set; }
     public string PersonFirstName { get; set; }
     public string PersonLastName { get; set; }
     public string? PersonEmail { get; set; }
