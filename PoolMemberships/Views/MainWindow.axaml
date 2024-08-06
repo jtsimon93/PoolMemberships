@@ -20,7 +20,7 @@
 
         <Menu Grid.Row="0" Background="#F0F0F0">
             <MenuItem Header="_File">
-                <MenuItem Header="_Excel Export" IsEnabled="False" />
+                <MenuItem Header="_Excel Export" Command="{Binding ExcelExportCommand}" />
                 <MenuItem Header="E_xit" Command="{Binding ExitCommand}" />
             </MenuItem>
             <MenuItem Header="_Members">
