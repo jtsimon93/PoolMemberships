@@ -13,4 +13,5 @@ public interface IMembershipService
     Task<MembershipWithPersonDto?> GetWithPersonAsync(int id);
     Task<Membership> UpdateAsync(int membershipId, UpdateMembershipDto membershipDto);
     Task<IEnumerable<MembershipWithPersonDto>> SearchAsync(MembershipSearchCriteriaDto searchDto);
+    Task<byte[]> GenerateExcelFile();
 }
