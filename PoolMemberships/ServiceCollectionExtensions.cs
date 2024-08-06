@@ -4,6 +4,7 @@ using PoolMemberships.Profiles;
 using PoolMemberships.Repositories;
 using PoolMemberships.Services;
 using PoolMemberships.ViewModels;
+using PoolMemberships.Views;
 
 namespace PoolMemberships;
 
@@ -13,6 +14,9 @@ public static class ServiceCollectionExtensions
     {
         // Database
         collection.AddDbContext<PoolMembershipDbContext>();
+        
+        // Main window
+        collection.AddSingleton<MainWindow>();
 
         // View Models
         collection.AddSingleton<MainWindowViewModel>();
